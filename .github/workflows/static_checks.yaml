@@ -1,6 +1,9 @@
 name: static check
 on: pull_request
 
+env:
+  GOFLAGS: "-buildvcs=false"
+  
 jobs:
   imports:
     name: Imports
