@@ -12,6 +12,8 @@ jobs:
       with:
         run: imports
         token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-buildvcs=false"
+
 
   errcheck:
     name: Errcheck
@@ -23,17 +25,7 @@ jobs:
       with:
         run: errcheck
         token: ${{ secrets.GITHUB_TOKEN }}
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: danhunsaker/golang-github-actions@v1.3.0
-      with:
-        run: lint
-        token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-buildvcs=false"
 
   shadow:
     name: Shadow
@@ -45,6 +37,7 @@ jobs:
       with:
         run: shadow
         token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-buildvcs=false"
 
   staticcheck:
     name: StaticCheck
@@ -56,5 +49,6 @@ jobs:
       with:
         run: staticcheck
         token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-buildvcs=false"
 
 
