@@ -12,7 +12,6 @@ jobs:
       with:
         run: imports
         token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-buildvcs=false"
 
 
   errcheck:
@@ -25,7 +24,6 @@ jobs:
       with:
         run: errcheck
         token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-buildvcs=false"
 
   shadow:
     name: Shadow
@@ -37,7 +35,6 @@ jobs:
       with:
         run: shadow
         token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-buildvcs=false"
 
   staticcheck:
     name: StaticCheck
@@ -49,6 +46,5 @@ jobs:
       with:
         run: staticcheck
         token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-buildvcs=false"
 
 
