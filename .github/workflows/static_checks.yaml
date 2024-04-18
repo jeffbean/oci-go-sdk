@@ -27,17 +27,7 @@ jobs:
       with:
         run: errcheck
         token: ${{ secrets.GITHUB_TOKEN }}
-
-  shadow:
-    name: Shadow
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: danhunsaker/golang-github-actions@v1.3.0
-      with:
-        run: shadow
-        token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-ignoretests -ignoregenerated"
 
   staticcheck:
     name: StaticCheck
@@ -48,6 +38,29 @@ jobs:
       uses: danhunsaker/golang-github-actions@v1.3.0
       with:
         run: staticcheck
+        token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-tests=false"
+  
+  vet:
+    name: Vet
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: check
+      uses: danhunsaker/golang-github-actions@v1.3.0
+      with:
+        run: vet
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+  fmt:
+    name: Fmt
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: check
+      uses: danhunsaker/golang-github-actions@v1.3.0
+      with:
+        run: fmt
         token: ${{ secrets.GITHUB_TOKEN }}
 
 
